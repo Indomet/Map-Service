@@ -7,7 +7,7 @@ router.get('/clinics', async (req, res) => {
     try {
         const clinics = await ClinicModel.find();
         const message = "Clinic has been fetched"
-        mqttClient.sendMessage(message + " " + clinics.toString());
+        // mqttClient.sendMessage(message + " " + clinics.toString());
         res.status(200).json({ message: message, clinics: clinics });
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -20,7 +20,8 @@ router.post('/clinics', async (req, res, next) => {
       .save()
       .then(function (clinic) {
         const message = "Clinic has been created"
-        mqttClient.sendMessage(message + " " + clinic.toString());
+        mqttClient.sendMessage(message);
+        // mqttClient.sendMessage(message + " " + clinic.toString());
         res.status(201).json({ message: message, clinic: clinic });
       })
       .catch(function (error) {
@@ -37,7 +38,8 @@ router.patch('/clinics/:id', async (req, res, next) => {
       Object.assign(clinic, req.body);
       clinic.save().then(function (clinic){
         const message = "Clinic has been updated"
-        mqttClient.sendMessage(message + " " + clinic.toString());
+        mqttClient.sendMessage(message);
+        // mqttClient.sendMessage(message + " " + clinic.toString());
         return res.status(200).json({ message: message , clinic: clinic }); 
       })
 
@@ -54,7 +56,8 @@ router.delete('/clinics/:id', async (req, res, next) => {
         return res.status(404).json({ error: 'Clinic not found' });
       }
       const message = "Clinic has been deleted"
-      mqttClient.sendMessage(message + " " + clinic.toString());
+      mqttClient.sendMessage(message);
+      // mqttClient.sendMessage(message + " " + clinic.toString());
       res.status(200).json({ message: message, deletedClinic: clinic });
     })
     .catch(err => {
