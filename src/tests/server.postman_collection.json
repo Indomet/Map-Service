@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"clinicName\":\"Lindholmen Dental Clinic\",\r\n    \"address\": \"Lindholmsplatsen 1\",\r\n    \"dentistId\": \"TEST ID\"\r\n}",
+					"raw": "{\r\n    \"clinicName\":\"Lindholmen Dental Clinic\",\r\n    \"address\": \"Lindholmsplatsen 1\",\r\n    \"dentistId\": \"TEST ID\",\r\n    \"clinicEmail\": \"lindholmen@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
